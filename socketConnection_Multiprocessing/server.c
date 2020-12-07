@@ -32,6 +32,7 @@ int main(int argc, char *argv[])
      if (argc < 2) {
          fprintf(stderr,"ERROR, no port provided\n");
          exit(1);
+     }
      sockfd = socket(AF_INET, SOCK_STREAM, 0);  /* create IPv4 connection socket */
      if (sockfd < 0)
         error("ERROR opening socket");
@@ -119,10 +120,10 @@ int getStopfile(){
          return -1; /* FAILURE = -1   */
       /*}*/
    }
+   
   if (fp_stop_file!=NULL)   /* File exists */
   {
      fclose(fp_stop_file);
   }
-
   return 1;
 }
