@@ -125,11 +125,14 @@ void* dostuff (void* sock)
    //printf("\nDEBUG1 message <%s>", message);
    strcat(message, ">, I got your message\0");
    //printf("\nDEBUG2 message <%s>", message);
-   pthread_mutex_unlock(&lock);
-   sleep(1);
+   
+   //sleep(1);
 
    n=send(tSocket, message, strlen(message), 0);    //linux
    if (n < 0) error("ERROR writing to socket");
+   
+   pthread_mutex_unlock(&lock);
+   usleep(1000);  //sleep for 1 mil
 
    free(message);
    close(tSocket);
