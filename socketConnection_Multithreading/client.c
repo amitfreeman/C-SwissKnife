@@ -60,11 +60,12 @@ int main(int argc, char *argv[]){
       if(pthread_create( &tid[i], NULL, clientThread, &hp) != 0){
           printf("\nfailed to create thread");
       }
-      sleep(1);
+      //sleep(1);
+       usleep(2000); //sleep for m milliseconds
       i++;
    }
 
-   sleep(5);
+   sleep(2);
    i=0;
 
    /* join to main thread */
