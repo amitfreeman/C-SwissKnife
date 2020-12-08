@@ -61,7 +61,7 @@ int main(int argc, char *argv[]){
           printf("\nfailed to create thread");
       }
       //sleep(1);
-       usleep(2000); //sleep for m milliseconds
+       usleep(1000); //sleep for 1 milliseconds
       i++;
    }
 
