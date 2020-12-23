@@ -59,6 +59,16 @@ void postorderTraversal(node* root){
     printf("%d -> ", root->item);
 }
 
+/* post order used, as to delete root node at last */
+void deleteTree(node* root){
+	if(root==NULL)
+		return;
+
+	deleteTree(root->left);
+	deleteTree(root->right);
+	free(root);
+}
+
 int main()
 {
     printf("--Tree, creating nodes\n");
@@ -77,5 +87,9 @@ int main()
   printf("\nPostorder traversal \n");
   postorderTraversal(root);
 
+   /* delete tree nodes */
+   printf("\nDeleting Tree");
+   deleteTree(root);
+         
     return 0;
 }
