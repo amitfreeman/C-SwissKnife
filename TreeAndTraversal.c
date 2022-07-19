@@ -6,6 +6,7 @@
          1
     12       9
 5       6   
+     10       
  
 inorder -> left - root -right
            5 12 6 1 9
@@ -69,6 +70,23 @@ void deleteTree(node* root){
 	free(root);
 }
 
+/* calculate height of tree,
+   first iterate over left side, then on right side
+   check the max number */
+int calcHeight(node* root){
+     if(!root)
+        return 0;
+
+    int left=calcHeight(root->left);
+
+    int right=calcHeight(root->right);
+    // printf("\nnode=%d, left=%d, right=%d", root->item, left, right);
+     if(left>right) 
+        return left+1;
+     else 
+        return right+1;
+}
+
 int main()
 {
     printf("--Tree, creating nodes\n");
@@ -77,6 +95,10 @@ int main()
     root->right=createNode(9);
     root->left->left=createNode(5);
     root->left->right=createNode(6);
+    root->left->right->left=createNode(10);
+
+    int h=calcHeight(root);
+    printf("\nHeight of Tree = %d", h);
     
   printf("\nInorder traversal \n");
   inorderTraversal(root);
