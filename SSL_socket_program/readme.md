@@ -2,8 +2,9 @@ SSL_server.c creates socket server that can continuously listen on input port.
 SSL_client.c creates client which can connect to server:port over SSL binding.
 
 Use below commands to compile:
-gcc -Wall -o SSL_server SSL_server.c -L/usr/lib -lssl -lcrypto -lpthread -ld1
-gcc -Wall -o SSL_client SSL_client.c -L/usr/lib -lssl -lcrypto -lpthread -ld1
+>gcc -Wall -o SSL_server SSL_server.c -L/usr/lib -lssl -lcrypto -lpthread -ld1
+
+>gcc -Wall -o SSL_client SSL_client.c -L/usr/lib -lssl -lcrypto -lpthread -ld1
 
 Use below command to run it:
 ./ssl_server <port>
