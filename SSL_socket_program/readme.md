@@ -7,8 +7,9 @@ Use below commands to compile:
 >gcc -Wall -o SSL_client SSL_client.c -L/usr/lib -lssl -lcrypto -lpthread -ld1
 
 Use below command to run it:
-./ssl_server <port>
-./ssl_client <server> <port>
+>./ssl_server <port>
+
+>./ssl_client <server> <port>
 
 I have referred this article to generate self signed SSL certificates for test purpose -
 https://help.ubuntu.com/community/OpenSSL 
