@@ -105,6 +105,8 @@ void* dostuff (void* sock)
    int tSocket = *((int*) sock);
       
    bzero(buffer,1024);
+
+   pthread_mutex_lock(&lock);
    //n = read(sock,buffer,1024);     //unix
    n=recv(tSocket, buffer, 1024, 0);    //linux
    if (n < 0) error("ERROR reading from socket");
@@ -112,7 +114,6 @@ void* dostuff (void* sock)
    //n = write(sock,"I got your message",18);   //unix
 
    /* send message to client socket */
-   pthread_mutex_lock(&lock);
    char* message=(char*) malloc(sizeof(buffer)+1024);
    strcpy(message, "Hello Client:<");
     /* calculate end of received buffer */
